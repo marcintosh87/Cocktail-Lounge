@@ -111,7 +111,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     modal.id = `modal${cocktail.idDrink}`;
     modal.classList.add("modal");
     modalContent.classList.add("modal-content");
-    modalContent.style.width = "50%";
+    modalContent.style.width = "80%";
     modalHeader.classList.add("modal-header");
     modalClose.classList.add("close");
     modalClose.innerHTML = "&times;";
