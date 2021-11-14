@@ -11,22 +11,67 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const searchInput = document.querySelector("#searchInput");
   const cardContainer = document.querySelector("#containerOfCards");
   const modalEntry = document.querySelector(".modal-entry");
+  const searchVodka = document.querySelector("#vodka");
+  const searchGin = document.querySelector("#gin");
+  const searchRum = document.querySelector("#rum");
+  const searchTequila = document.querySelector("#tequila");
+  const searchWhiskey = document.querySelector("#whiskey");
 
   function searchCocktails(query = "rum") {
     fetch(`${searchURL}${query}
 `)
       .then((res) => res.json())
       .then((cocktail) => {
-        //   let {
-        //     drinks: [{ strDrink, strDrinkThumb, strIBA }],
-        //   } = cocktail;
-        //   console.log(cocktail.drinks);
-        console.log(cocktail.drinks);
+        let {
+          drinks: [
+            {
+              strDrink,
+              strDrinkThumb,
+              strIBA,
+              strIngredient1,
+              strIngredient2,
+              strIngredient3,
+              strIngredient4,
+              strIngredient5,
+              strIngredient6,
+              strIngredient7,
+              strIngredient8,
+              strIngredient9,
+              strIngredient10,
+              strIngredient11,
+              strIngredient12,
+              strIngredient13,
+              strIngredient14,
+              strIngredient15,
+            },
+          ],
+        } = cocktail;
+        //dont touch
         cocktail.drinks.forEach(renderCard);
+        //dont touch
+        console.log(cocktail.drinks);
       });
   }
 
   function renderCard(cocktail) {
+    const ing = [
+      cocktail.strMeasure1 + cocktail.strIngredient1,
+      cocktail.strMeasure2 + cocktail.strIngredient2,
+      cocktail.strMeasure3 + cocktail.strIngredient3,
+      cocktail.strMeasure4 + cocktail.strIngredient4,
+      cocktail.strMeasure5 + cocktail.strIngredient5,
+      cocktail.strMeasure6 + cocktail.strIngredient6,
+      cocktail.strMeasure7 + cocktail.strIngredient7,
+      cocktail.strMeasure8 + cocktail.strIngredient8,
+      cocktail.strMeasure9 + cocktail.strIngredient9,
+      cocktail.strMeasure10 + cocktail.strIngredient10,
+      cocktail.strMeasure11 + cocktail.strIngredient11,
+      cocktail.strMeasure12 + cocktail.strIngredient12,
+      cocktail.strMeasure13 + cocktail.strIngredient13,
+      cocktail.strMeasure14 + cocktail.strIngredient14,
+      cocktail.strMeasure15 + cocktail.strIngredient15,
+    ];
+
     //creation
     const cardBlock = document.createElement("div");
     const card = document.createElement("div");
@@ -43,6 +88,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const modalbody = document.createElement("div");
     const modalInstruct = document.createElement("p");
     const modalIngredients = document.createElement("ul");
+    const modalIngHeader = document.createElement("h5");
     const likeBtn = document.createElement("button");
     const dislikeBtn = document.createElement("button");
     let likeBtnCount = 0;
@@ -66,13 +112,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
     modal.classList.add("modal");
     modalContent.classList.add("modal-content");
     modalContent.style.width = "50%";
-
     modalHeader.classList.add("modal-header");
     modalClose.classList.add("close");
     modalClose.innerHTML = "&times;";
     modalHeaderTitle.innerHTML = `<i class="fas fa-cocktail"></i> ${cocktail.strDrink}`;
     modalbody.classList.add = "modal-body";
     modalbody.style.padding = "3rem";
+    modalIngHeader.textContent = "Ingredients";
+    modalIngredients.classList.add("ingredients-list");
+    // modalIngredientsLi.textContent = measure[0] + ing[0];
+    ing.forEach((item) => {
+      if (item == 0) {
+        return "";
+      } else {
+        const modalIngredientsLi = document.createElement("li");
+        modalIngredientsLi.innerHTML = item;
+        modalIngredients.append(modalIngredientsLi);
+      }
+    });
+
     modalInstruct.innerHTML = `<h5>Instructions:</h5> ${cocktail.strInstructions}`;
 
     likeBtn.innerHTML = `<i class="fa fa-thumbs-up" aria-hidden="true"></i><span>${likeBtnCount}</span>`;
@@ -88,10 +146,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     //modal
 
-    modalBtn.addEventListener("click", () => (modal.style.display = "block"));
-
-    // // Get the <span> element that closes the modal
-    // var span = document.getElementsByClassName("close")[0];
+    modalBtn.addEventListener("click", () => {
+      modal.style.display = "block";
+    });
 
     // When the user clicks on <span> (x), close the modal
     modalClose.onclick = function () {
@@ -111,11 +168,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     cardBlock.append(card);
     cardContainer.append(cardBlock);
     modalHeader.append(modalHeaderTitle, modalClose);
-    modalbody.append(modalIngredients, modalInstruct);
+
+    modalbody.append(modalIngHeader, modalIngredients, modalInstruct);
     modalContent.append(modalHeader, modalbody);
     modal.append(modalContent);
     modalEntry.append(modal);
   }
+
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     // card.classList.remove("hide");
@@ -124,5 +183,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
     searchCocktails(searchInput.value);
     searchForm.reset();
   });
-  searchCocktails();
+  //Search by Ingredient
+  searchVodka.addEventListener("click", () => {
+    cardContainer.replaceChildren();
+    searchCocktails("vodka");
+  });
+  searchGin.addEventListener("click", () => {
+    cardContainer.replaceChildren();
+    searchCocktails("gin");
+  });
+  searchTequila.addEventListener("click", () => {
+    cardContainer.replaceChildren();
+    searchCocktails("tequila");
+  });
+  searchRum.addEventListener("click", () => {
+    cardContainer.replaceChildren();
+    searchCocktails("rum");
+  });
+  searchWhiskey.addEventListener("click", () => {
+    cardContainer.replaceChildren();
+    searchCocktails("whiskey");
+  });
 });
