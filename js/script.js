@@ -42,6 +42,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const modalHeaderTitle = document.createElement("h2");
     const modalbody = document.createElement("div");
     const modalInstruct = document.createElement("p");
+    const modalIngredients = document.createElement("ul");
     const likeBtn = document.createElement("button");
     const dislikeBtn = document.createElement("button");
     let likeBtnCount = 0;
@@ -69,10 +70,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     modalHeader.classList.add("modal-header");
     modalClose.classList.add("close");
     modalClose.innerHTML = "&times;";
-    modalHeaderTitle.textContent = cocktail.strDrink;
+    modalHeaderTitle.innerHTML = `<i class="fas fa-cocktail"></i> ${cocktail.strDrink}`;
     modalbody.classList.add = "modal-body";
     modalbody.style.padding = "3rem";
-    modalInstruct.textContent = `Instructions: ${cocktail.strInstructions}`;
+    modalInstruct.innerHTML = `<h5>Instructions:</h5> ${cocktail.strInstructions}`;
 
     likeBtn.innerHTML = `<i class="fa fa-thumbs-up" aria-hidden="true"></i><span>${likeBtnCount}</span>`;
     likeBtn.classList.add("btn");
@@ -110,7 +111,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     cardBlock.append(card);
     cardContainer.append(cardBlock);
     modalHeader.append(modalHeaderTitle, modalClose);
-    modalbody.append(modalInstruct);
+    modalbody.append(modalIngredients, modalInstruct);
     modalContent.append(modalHeader, modalbody);
     modal.append(modalContent);
     modalEntry.append(modal);
