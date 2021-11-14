@@ -4,7 +4,124 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="shortcut icon"
+      href="./img/cocktail icon.png"
+      type="image/x-icon"
+    />
+    <title>The Cocktail Lounge</title>
   </head>
-  <body></body>
+  <body>
+    <div class="vignette background">
+      <header class="flex-container-center">
+        <div class="logo">
+          <img
+            src="./img/Cocktail Lounge Logo@4x.png"
+            alt="Cocktail Lounge"
+            class="img-fluid blink_me"
+          />
+        </div>
+      </header>
+      <!-- search bar start -->
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <form id="search-form" class="input-group-prepend">
+              <input
+                id="searchInput"
+                class="input-group-prepend"
+                style="width: 22rem; height: 2.3rem"
+              />
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-cocktail"></i> Search
+              </button>
+            </form>
+          </div>
+          <!-- search bar end -->
+          <div class="col">
+            <div class="dropdown">
+              <button
+                class="btn btn-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenu2"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fas fa-wine-bottle"></i>Search by Ingredient
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Action</button>
+                <button class="dropdown-item" type="button">
+                  Another action
+                </button>
+                <button class="dropdown-item" type="button">
+                  Something else here
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- cards -->
+      <main>
+        <div class="container">
+          <div class="flex-container" id="containerOfCards"></div>
+        </div>
+      </main>
+      <!-- Modal Window Start-->
+
+      <div class="modal-entry"></div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Modal Header</h2>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div class="modal-footer">
+            <h3>Modal Footer</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Window End -->
+      <!-- Bootstrap Script -->
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
+
+      <!-- Project JS -->
+      <script src="./js/script.js"></script>
+    </div>
+  </body>
 </html>
