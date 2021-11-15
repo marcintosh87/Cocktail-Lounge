@@ -52,7 +52,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         console.log(cocktail.drinks);
       });
   }
-
+  function measure15() {
+    for (let i = 1; i <= 15; ++i) {
+      console.log("cocktail.strMeasure" + i);
+    }
+  }
+  // measure15();
   function renderCard(cocktail) {
     const ing = [
       cocktail.strMeasure1 + cocktail.strIngredient1,
@@ -122,11 +127,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
     modalIngredients.classList.add("ingredients-list");
     // modalIngredientsLi.textContent = measure[0] + ing[0];
     ing.forEach((item) => {
-      if (item == 0) {
-        return "";
+      if (item === 0) {
+        return false;
       } else {
         const modalIngredientsLi = document.createElement("li");
-        modalIngredientsLi.innerHTML = item;
+        modalIngredientsLi.innerHTML = item.replace("null", "");
         modalIngredients.append(modalIngredientsLi);
       }
     });
