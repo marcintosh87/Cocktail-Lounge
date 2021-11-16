@@ -52,13 +52,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
         console.log(cocktail.drinks);
       });
   }
-  function measure15() {
-    for (let i = 1; i <= 15; ++i) {
-      console.log("cocktail.strMeasure" + i);
-    }
-  }
+
   // measure15();
   function renderCard(cocktail) {
+    console.log(cocktail);
     const ing = [
       cocktail.strMeasure1 + cocktail.strIngredient1,
       cocktail.strMeasure2 + cocktail.strIngredient2,
