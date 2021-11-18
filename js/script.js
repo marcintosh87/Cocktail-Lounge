@@ -28,11 +28,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
         //dont touch
         cocktail.drinks.forEach(renderCard);
         //dont touch
-        console.log(cocktail);
+        // console.log(cocktail);
       });
   }
 
-  // measure15();
   function renderCard(cocktail) {
     const ing = Object.entries(cocktail)
       .slice(17, 32)
@@ -40,6 +39,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const measure = Object.entries(cocktail)
       .slice(32, 47)
       .map((entry) => entry[1]);
+    console.log(cocktail);
+
     const measureIng = measure.map((value, index) => value + ing[index]);
 
     //creation
