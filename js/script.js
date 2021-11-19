@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         //dont touch
         cocktail.drinks.forEach(renderCard);
         //dont touch
-        // console.log(cocktail);
+        console.log(cocktail);
       });
   }
 
@@ -39,7 +39,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const measure = Object.entries(cocktail)
       .slice(32, 47)
       .map((entry) => entry[1]);
-    console.log(cocktail);
 
     const measureIng = measure.map((value, index) => value + ing[index]);
 
@@ -105,7 +104,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     modalInstruct.innerHTML = `<h5>Instructions:</h5> ${cocktail.strInstructions}`;
 
-    likeBtn.innerHTML = `<i class="fa fa-thumbs-up" aria-hidden="true"></i><span>${likeBtnCount}</span>`;
+    likeBtn.innerHTML = `<i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;<span>${likeBtnCount}</span>`;
     likeBtn.classList.add("btn");
     dislikeBtn.innerHTML = `<i class="fa fa-thumbs-down" aria-hidden="true"></i><span>${dislikeBtnCount}</span>`;
     dislikeBtn.classList.add("btn");
@@ -113,7 +112,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     //likebutton
     likeBtn.addEventListener("click", () => {
       likeBtn.style.color = "#ce9928";
-      likeBtn.innerHTML = `<i class="fa fa-thumbs-up" aria-hidden="true"></i><span>${++likeBtnCount}</span>`;
+      likeBtn.innerHTML = `<i class="fa fa-thumbs-up" aria-hidden="true"></i> &nbsp;<span>${++likeBtnCount}</span>`;
     });
 
     //modal
@@ -123,12 +122,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     // When the user clicks on <span> (x), close the modal
-    modalClose.onclick = function () {
+    modalClose.onclick = () => {
       modal.style.display = "none";
     };
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
+    window.onclick = (event) => {
       if (event.target == modal) {
         modal.style.display = "none";
       }
