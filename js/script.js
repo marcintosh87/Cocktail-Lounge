@@ -1,5 +1,5 @@
 "use strict";
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", (e) => {
   const searchURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
   //card Selectors
